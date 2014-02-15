@@ -9,12 +9,22 @@ boolean ledOn = false;
 // Timers
 Timer ledTimer;
 
+// Photoresistor pin
+int photo = 4;
+int photoSensor = A0;
+
 void setup() {
   Serial.begin(9600);
   pinMode(led, OUTPUT);
+  pinMode(photo, INPUT_PULLUP);
+  
   ledTimer.every(20, updateLed);
 }
 
+/**
+* Turns led on or off depending on the ledCounter.
+* Is called every 20ms.
+*/
 void updateLed() {
   ledCounter++;
   
@@ -30,4 +40,11 @@ void updateLed() {
 
 void loop() {
   ledTimer.update();
+  
+  int photoVal = digitalRead(photo);
+  int sensorVal = analogRead(photoSensor);
+  if(sensorVal < 200) {
+    Serial.println(millis());
+    Serial.println("On!");
+  }
 }
