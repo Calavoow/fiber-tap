@@ -8,17 +8,64 @@ boolean ledOn = false;
 
 // Timers
 Timer ledTimer;
+Timer TXTimer;
 
 // Photoresistor pin
-int photo = 4;
 int photoSensor = A0;
+
+unsigned char data = 0xA1;
+char transmitCounter = 0;
+unsigned char transmitData[16];
+
+void transmit(){
+  if(transmitCounter >= 16) return;
+  
+  Serial.println("Transmitting!");
+  Serial.println(millis());
+  unsigned char data = transmitData[transmitCounter];
+  Serial.println(data);
+  if(data){
+    Serial.println("High");
+    digitalWrite(led, HIGH);
+  } else {
+    Serial.println("Low");
+    digitalWrite(led,LOW);
+  }
+  
+  transmitCounter++;
+}
+
+void manchesterData(byte data) {;
+  int i = 0;
+    for(; i < 8; i+=2){
+      unsigned char bit = data & (1 << i);
+      if( bit ){
+        //high-to-low
+	transmitData[i] = 1;
+	transmitData[i+1] = 0;
+      } else {
+	//low-to-high
+        transmitData[i] = 0;
+        transmitData[i+1] = 1;
+      }
+    }
+}
 
 void setup() {
   Serial.begin(9600);
-  pinMode(led, OUTPUT);
-  pinMode(photo, INPUT_PULLUP);
   
-  ledTimer.every(20, updateLed);
+  pinMode(led, OUTPUT);
+  
+  //Use a pullup as input pin for the photoresistor.
+  pinMode(photoSensor, INPUT_PULLUP);
+  
+  //ledTimer.every(20, updateLed);
+  TXTimer.every(10, transmit);
+  TXTimer.after(1000, ledOff);
+  manchesterData(data);
+  
+  // Wait for Serial to connect to so output.
+  while(!Serial) ;
 }
 
 /**
@@ -38,12 +85,21 @@ void updateLed() {
   }
 }
 
+void ledOff() {
+  digitalWrite(led, LOW);
+}
+
+int minimum = 1000;
 void loop() {
-  ledTimer.update();
+  //ledTimer.update();
+  TXTimer.update();
   
-  int photoVal = digitalRead(photo);
   int sensorVal = analogRead(photoSensor);
-  if(sensorVal < 200) {
+  //Serial.println(sensorVal);
+  minimum = min(minimum, sensorVal);
+  //Serial.println(minimum);
+  
+  if(sensorVal < 800) {
     Serial.println(millis());
     Serial.println("On!");
   }
