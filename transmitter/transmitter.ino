@@ -2,7 +2,7 @@
 #include <Timer.h>
 
 // LED pin
-int led = 2;
+int led = 4;
 short ledCounter = 0;
 boolean ledOn = false;
 
@@ -18,7 +18,11 @@ char transmitCounter = 0;
 unsigned char transmitData[16];
 
 void transmit(){
-  if(transmitCounter >= 16) return;
+  if(transmitCounter >= 16) {
+    transmitCounter = 0;
+    return;
+  }
+
   
   Serial.println("Transmitting!");
   Serial.println(millis());
@@ -95,11 +99,13 @@ void loop() {
   TXTimer.update();
   
   int sensorVal = analogRead(photoSensor);
-  //Serial.println(sensorVal);
+  Serial.print("Sensor Value: ");
+  Serial.println(sensorVal);
   minimum = min(minimum, sensorVal);
-  //Serial.println(minimum);
+  Serial.print("Minimum Value: ");
+  Serial.println(minimum);
   
-  if(sensorVal < 800) {
+  if(sensorVal < 30) {
     Serial.println(millis());
     Serial.println("On!");
   }
