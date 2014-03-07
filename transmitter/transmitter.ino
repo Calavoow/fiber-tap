@@ -1,3 +1,4 @@
+#include <Manchester.h>
 #include <Event.h>
 #include <Timer.h>
 
@@ -55,13 +56,17 @@ void manchesterData(byte data) {;
     }
 }
 
+#define BUFFER_SIZE 10
+uint8_t buffer[BUFFER_SIZE];
 void setup() {
   Serial.begin(9600);
   
   pinMode(led, OUTPUT);
   
   //Use a pullup as input pin for the photoresistor.
-  pinMode(photoSensor, INPUT_PULLUP);
+  //pinMode(photoSensor, INPUT_PULLUP);
+  man.setupReceiveAnalog(photoSensor, MAN_300, 50);
+  man.beginReceiveArray(BUFFER_SIZE, buffer);
   
   //ledTimer.every(20, updateLed);
   TXTimer.every(10, transmit);

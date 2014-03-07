@@ -1,3 +1,6 @@
 [submodule "lib/Timer"]
 	path = lib/Timer
 	url = git@github.com:JChristensen/Timer.git
+[submodule "lib/Manchester"]
+	path = lib/Manchester
+	url = git@github.com:Calavoow/arduino-manchester-analog.git
