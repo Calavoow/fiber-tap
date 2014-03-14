@@ -23,7 +23,6 @@ void transmit(){
     transmitCounter = 0;
     return;
   }
-
   
   Serial.println("Transmitting!");
   Serial.println(millis());
@@ -61,20 +60,21 @@ uint8_t buffer[BUFFER_SIZE];
 void setup() {
   Serial.begin(9600);
   
-  pinMode(led, OUTPUT);
+  //pinMode(led, OUTPUT);
   
   //Use a pullup as input pin for the photoresistor.
-  //pinMode(photoSensor, INPUT_PULLUP);
-  man.setupReceiveAnalog(photoSensor, MAN_300, 50);
-  man.beginReceiveArray(BUFFER_SIZE, buffer);
+  man.setupTransmit(led, MAN_19200);
+  pinMode(photoSensor, INPUT_PULLUP);
+  man.setupReceiveAnalog(photoSensor, MAN_19200, 200);
+  man.beginReceive();
   
-  //ledTimer.every(20, updateLed);
-  TXTimer.every(10, transmit);
-  TXTimer.after(1000, ledOff);
-  manchesterData(data);
+  
+  TXTimer.every(500, transmitDataFunc);
+  // manchesterData(data);
   
   // Wait for Serial to connect to so output.
   while(!Serial) ;
+  Serial.println("begin");
 }
 
 /**
@@ -94,15 +94,8 @@ void updateLed() {
   }
 }
 
-void ledOff() {
-  digitalWrite(led, LOW);
-}
-
-int minimum = 1000;
-void loop() {
-  //ledTimer.update();
-  TXTimer.update();
-  
+int minimum = 30000;
+void readSensor() {
   int sensorVal = analogRead(photoSensor);
   Serial.print("Sensor Value: ");
   Serial.println(sensorVal);
@@ -110,8 +103,31 @@ void loop() {
   Serial.print("Minimum Value: ");
   Serial.println(minimum);
   
-  if(sensorVal < 30) {
+  if(sensorVal < 200) {
     Serial.println(millis());
     Serial.println("On!");
+  }
+}
+
+uint8_t txData = 0;
+int iteration = 0;
+void transmitDataFunc() {
+  if(iteration < (16 + 8*sizeof(txData))) {
+    man.transmitArrayNonBlocking(sizeof(txData), &txData, iteration);
+  } else {
+    Serial.println("Done");
+    txData++;
+    iteration=0;
+  }
+  Serial.println("Continuing");
+}
+
+void loop() {
+  Serial.println("Loop");
+  TXTimer.update();
+  if(man.receiveComplete()) {
+    uint16_t m = man.getMessage();
+    man.beginReceive();
+    Serial.println(m);
   }
 }
