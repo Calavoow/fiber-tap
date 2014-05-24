@@ -8,14 +8,14 @@ void setup() {
 	Serial.begin(9600);
 
 	// Use analog pin as digital
-	man.setupReceive(photoSensor, MAN_300);
-//		  pinMode(photoSensor, INPUT);
+	man.setupReceiveAnalog(photoSensor, MAN_300, 50);
+        //pinMode(photoSensor, INPUT);
 		
 	// Wait for Serial to connect to so output.
-	while(!Serial) ;
+	while(!Serial);
 	Serial.println("begin");
 
-		man.beginReceive();
+	man.beginReceive();
 }
 
 /**
@@ -64,6 +64,9 @@ void loop() {
 	}
 	Serial.println("-----------------");
 	**/
+        
+//        int val = analogRead(photoSensor);
+//        Serial.println(val);
 
 	// Receive data packets.
 	if(man.receiveComplete()) {
