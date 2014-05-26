@@ -1,7 +1,6 @@
 #include <Manchester.h>
 
 // Photoresistor pin
-
 int photoSensor = A0;
 
 void setup() {
@@ -42,7 +41,7 @@ void readSensor() {
 */
 
 // Buffer the received messages because printing corrupts the next message.
-uint16_t msgs[128];
+uint16_t msgs[64];
 int msg_counter = 0;
 /**
  * The main receiver program loop.
@@ -77,8 +76,8 @@ void loop() {
 		msg_counter++;
 			
 		// Print received messages
-		if(msg_counter > 127){
-			for(int i=0; i<128; i++){
+		if(msg_counter > 63){
+			for(int i=0; i<64; i++){
 				Serial.println(msgs[i]);
 			}
 			msg_counter = 0;
