@@ -17,70 +17,26 @@ void setup() {
 	man.beginReceive();
 }
 
-/**
- * Read a sensor value. Used for debugging the threshold.
- **/
- /*
-int minimum = 30000;
-int maximum = 0;
-int iteration = 0;
-void readSensor() {
-	int sensorVal = analogRead(photoSensor);
-	minimum = min(minimum, sensorVal);
-	maximum = max(maximum, sensorVal);
-	if(iteration > 1000){
-		Serial.print("Maximum:");
-		Serial.print(maximum);
-		Serial.print("\tMinimum: ");
-		Serial.print(minimum);
-		Serial.println("");
-		iteration = 0;
-	}
-	iteration++;
-}
-*/
-
 // Buffer the received messages because printing corrupts the next message.
-uint16_t msgs[64];
+char password[25];
 int msg_counter = 0;
 /**
  * The main receiver program loop.
  **/
 void loop() {
-	/**
-	 * Debug transfer
-	int meas[128];
-	int meas2[128];
-	for(int i=0; i<128; i++){
-		meas[i] = digitalRead(photoSensor);
-		meas2[i] = analogRead(photoSensor);
-	}
- 
-	for(int i=0; i<128; i++){
-	   Serial.print(meas[i]);
-	   Serial.print("\t");
-	   Serial.println(meas2[i]);
-	}
-	Serial.println("-----------------");
-	**/
-        
-//        int val = analogRead(photoSensor);
-//        Serial.println(val);
-
 	// Receive data packets.
 	if(man.receiveComplete()) {
-		uint16_t m = man.getMessage();
-		// Get ready to receive next packet
-		man.beginReceive();
-		msgs[msg_counter] = m;
+		char m = man.getMessage();
+
+		password[msg_counter] = m;
 		msg_counter++;
 			
 		// Print received messages
-		if(msg_counter > 63){
-			for(int i=0; i<64; i++){
-				Serial.println(msgs[i]);
-			}
-			msg_counter = 0;
+		if(msg_counter > 24){
+		    Serial.println(password);
+		    msg_counter = 0;
 		}
+                // Get ready to receive next packet
+                man.beginReceive();
 	}
 }
