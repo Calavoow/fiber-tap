@@ -1,0 +1,88 @@
+\documentclass[11pt,twoside,a4paper]{scrartcl}
+	\usepackage[english]{babel}
+	\usepackage{amsmath}
+	\usepackage{amsthm}
+	\usepackage{amssymb}
+	\usepackage[hidelinks]{hyperref}
+	\usepackage{graphicx}
+	\usepackage{listings}
+	\usepackage{color}
+
+	\usepackage[nameinlink,capitalise]{cleveref}
+
+	\definecolor{mycomment}{rgb}{0.3,0.7,0.8}
+	\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+	\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+	\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+	\lstset{
+	  backgroundcolor=\color{lightgray},
+	  basicstyle=\footnotesize,
+	  breakatwhitespace=false,
+	  breaklines=true,
+	  captionpos=b,
+	  commentstyle=\color{mycomment},
+	  escapeinside={\%*}{*)},
+	  extendedchars=true,
+	  keepspaces=true,
+	  keywordstyle=\color{black}\bfseries,
+	  language=matlab,
+	  numbers=left,
+	  numbersep=5pt,
+	  numberstyle=\tiny\color{mygray},
+	  rulecolor=\color{black},
+	  showspaces=false,
+	  showstringspaces=false,
+	  showtabs=false,
+	  stringstyle=\color{mymauve},
+	  tabsize=2,
+	  title=\lstname
+	}
+
+	%Pseudocode
+	\usepackage{algorithm}
+	\usepackage[noend]{algpseudocode}
+
+	% Euro symbol
+	\usepackage[official]{eurosym}
+
+	\title{A Fiber Tap Proof of Concept}
+	\subtitle{Tapping Communications on the Cheap}
+	\author{
+		Eddie Schoute, 4101790\\
+		Alex van Rijs, ???
+	}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	\noindent Network security is a very important concept in today's information society.
+	With the heavy reliance on data communications, comes also a responsibility for its security.
+	While fiber cables are an improvement over traditional copper with respect to tapping,
+	it is still very possible to tap these cables as we will show in this paper.
+	We will give a proof of concept of tapping fiber communications ``on the cheap'',
+	using less than \euro{}$20$ in hardware materials.
+	As such we recommend that confidential data communication needs to be encrypted,
+	even when using fiber optic cables.
+\end{abstract}
+
+\section{Introduction}
+	Terabytes of data are being exchanged over fiber optic cables every day and user rely on their security.
+	As can be shown with the recent controversy surrounding the tapping of Google and Yahoo network infrastructure~\cite{googleyahootap},
+	the pure physical layer of communications is still assumed to be secure.
+
+	While it is better known that copper taps are easy to install, fiber optic communications are harder to tap.
+	In this paper we will investigate the possible ways an intruder may use to tap fiber optic links.
+	We we also look into bringing these methods into practice, by supplying a proof of concept implementation.
+
+\section{Design}
+
+\section{Implementation}
+
+\section{Conclusion}
+
+\bibliographystyle{unsrt}
+\bibliography{bibl}
+
+\end{document}
