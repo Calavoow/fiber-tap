@@ -120,7 +120,7 @@
 	after which we installed the tapper.
 
 	\subsection{Fiber Communication}
-		At first we tried to set up a communication using two Arduinos, an LED with a wavelength of about \SI{650}{\micro\meter},
+		At first we tried to set up a communication using two Arduinos, an LED with a wavelength of about \SI{650}{\nano\meter},
 		a fiber cable, a lens and a photoresistor.
 		We immediately noticed that simply shining the LED into the cable would not work,
 		because not enough light enters the cable using this method.
@@ -129,35 +129,38 @@
 		Only after consulting with the Optics department did we give up on using this method
 		and ordered a fiber communication kit.
 
-		The kit included a transmitter, receiver, a fiber cable with connectors and some other materials we did not use.
-		The adjoining data sheet includes a circuit for simple \SI{40}{\kilo Bd} communication link,
+		The kit included a transmitter at \SI{660}{\nano\meter}, receiver, a fiber cable with connectors and some other materials we did not use.
+		The adjoining data sheet describes a circuit for a simple \SI{40}{\kilo Bd} communication link,
 		which we used for building a basic communication link~\cite[p.15]{avagokit},
 		see \cref{fig:transmitter}.
+		Initially we planned to have an input resistance of \SI{500}{\ohm} instead of \SI{100}{\ohm},
+		but we noticed that the light source has a higher intensity with lower input resistance.
+		With more input power it easier to tap the cable, so we opted for a lower resistance.
 		The output receiver was built exactly as specified in the data sheet.
 
 		\begin{figure}
 			\centering
 			\begin{tikzpicture}
-			  \draw
-			  (0,5) node[ocirc] {\SI{5}{\volt}}
-			  to (1,5) node[circ] (input) {}
-			  to ++(0,2)
-			  to[C, l={\SI{4.7}{\micro\farad}}] ++(2,0)
-			  node[sground] {}
+				\draw
+				(0,5) node[ocirc] {\SI{5}{\volt}}
+				to (1,5) node[circ] (input) {}
+				to ++(0,2)
+				to[C, l={\SI{4.7}{\micro\farad}}] ++(2,0)
+				node[sground] {}
 
-			  (input) to[R, l={\SI{100}{\ohm}}] ++(3,0) node[circ] (transmitter) {}
-			  ++(0,-2) node[npn] (npn) {}
-			  (transmitter) to (npn.collector) {}
+				(input) to[R, l={\SI{100}{\ohm}}] ++(3,0) node[circ] (transmitter) {}
+				++(0,-2) node[npn] (npn) {}
+				(transmitter) to (npn.collector) {}
 
-			  (npn.base) to ++(-1,0) node[ocirc] {DATA}
-			  (npn.emitter) node[sground] {}
+				(npn.base) to ++(-1,0) node[ocirc] {DATA}
+				(npn.emitter) node[sground] {}
 
-			  (transmitter) to ++(2,0) node[ocirc] (tx1) {$TX_1$}
-			  ++(0,-1) node[ocirc] (tx2) {$TX_2$}
-			  to ++(-1,0) node[sground] {}
-			  (tx2) ++(0,-1) node[ocirc] {$TX_3$}
-			  ++(0,-1) node[ocirc] {$TX_4$}
-			  ;
+				(transmitter) to ++(2,0) node[ocirc] (tx1) {$TX_1$}
+				++(0,-1) node[ocirc] (tx2) {$TX_2$}
+				to ++(-1,0) node[sground] {}
+				(tx2) ++(0,-1) node[ocirc] {$TX_3$}
+				++(0,-1) node[ocirc] {$TX_4$}
+				;
 			\end{tikzpicture}
 			\caption{Circuit of the transmitter}
 			\label{fig:transmitter}
@@ -188,7 +191,7 @@
 		Using this information we built a simple pull-up circuit using a little trial-and-error,
 		we came to a final pull-up resistor of \SI{100}{\kilo\ohm}\todo{Check}.
 		When reading the ADC input to the Arduino resulted in values of $3 \pm 2$ for ON and between $95 \pm 7$ for OFF.
-		
+
 		Now to interpret the sent Manchester data on the fiber tap we needed to threshold the measurements
 		at about $50$ to turn it into a $1$ or $0$.
 		The given library does not support analog inputs, so we modified the library to use
