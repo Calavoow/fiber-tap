@@ -15,7 +15,8 @@
 	\definecolor{dark-red}{rgb}{0.4,0.15,0.15}
 	\definecolor{dark-blue}{rgb}{0.15,0.15,0.4}
 	\definecolor{medium-blue}{rgb}{0,0,0.5}
-	\hypersetup{
+	\definecolor{bg}{rgb}{0.95,0.95,0.95} % Needed for listing background
+	\hypersetup{%
 		colorlinks, linkcolor={dark-blue},
 		citecolor={dark-blue}, urlcolor={medium-blue}
 	}
@@ -25,7 +26,7 @@
 	\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
 	\definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-	\lstset{
+	\lstset{%
 	  backgroundcolor=\color{lightgray},
 	  basicstyle=\footnotesize,
 	  breakatwhitespace=false,
@@ -62,9 +63,21 @@
 	% Circuit drawing
 	\usepackage[siunitx]{circuitikz}
 
+	% Code listings
+	\usepackage[section]{minted}
+	\newmintedfile[cfile]{c}{%
+		frame=leftline,
+		linenos=true,
+		tabsize=4,
+		bgcolor=bg
+	}
+
+	% Todos
+	\usepackage{todonotes}
+
 	\title{A Fiber Tap Proof of Concept}
 	\subtitle{Tapping Communications on the Cheap}
-	\author{
+	\author{%
 		Eddie Schoute, 4101790\\
 		Alex van Rijs, ???
 	}
@@ -120,6 +133,7 @@
 		The adjoining data sheet includes a circuit for simple \SI{40}{\kilo Bd} communication link,
 		which we used for building a basic communication link~\cite[p.15]{avagokit},
 		see \cref{fig:transmitter}.
+		The output receiver was built exactly as specified in the data sheet.
 
 		\begin{figure}
 			\centering
@@ -149,9 +163,63 @@
 			\label{fig:transmitter}
 		\end{figure}
 
+		During this process we also investigated methods for data transfer and concluded that Manchester coding was simple but effective.
+		At first we started to implement this ourselves, but encountered issues regarding timing and synchronization.
+		Luckily we found a library that provides Manchester coding for Arduino~\cite{manchestercoding}.
+		Using the material we have so far we coded a transmitter and receiver, which have been appended in~\cref{lst:transmitterCode,lst:receiverCode}.
+		In the next section we will discuss the modifications in the tapper code.
+
+	\subsection{Fiber Tap}
+		The first step of installing a fiber is removing the isolation.
+		The biggest problem in this step is that the cable is very vulnerable and could break.
+		We used a knife for the plastic outer layer and sandpaper for the vulnerable inner layer.
+		Then by bending the cable a part of the light leaks out,
+		because for a portion of the light in the cable the angle of incidence is too small.
+
+		Secondly, we attached a photo sensor to the cable.
+		At first we tried using a photo resistor whose operation is very simple,
+		the resistance decrease with increasing light intensity.
+		This works well for low frequency signals (up to \SI{5}{\hertz}),
+		but is insufficient for but the lowest speed data transfers.
+		We then switched to a photo transistor with a switching speed of at most \SI{15}{\micro\second}~\cite{phototransistor}.
+		This allows a frequency of up to \SI{67}{\kilo\hertz} which is sufficient for our purposes.
+		We measured the resistance of the attached transistor when the light was ON and OFF
+		at \SI{300}{\kilo\ohm} and over \SI{1}{\mega\ohm} respectively.
+		Using this information we built a simple pull-up circuit using a little trial-and-error,
+		we came to a final pull-up resistor of \SI{100}{\kilo\ohm}\todo{Check}.
+		When reading the ADC input to the Arduino resulted in values of $3 \pm 2$ for ON and between $95 \pm 7$ for OFF.
+		
+		Now to interpret the sent Manchester data on the fiber tap we needed to threshold the measurements
+		at about $50$ to turn it into a $1$ or $0$.
+		The given library does not support analog inputs, so we modified the library to use
+		a threshold and an analog input for measuring the input signal.
+		The resulting library can be found at~\cite{analogmanchestercoding}.
+
+		For better results and sturdiness we have also constructed a simple container,
+		which keeps the cable bended and the photo sensor isolated from external light sources.
+		We also found out that printing the results does not take an insignificant amount of time,
+		resulting in missed bytes on the tap which is why we buffered the data.
+		Using the above components we are successfully able to tap increasing numbers of up to
+		$128$ in a row at \SI{300}{Bd}, at which point the Arduino memory limit is reached.
+
 \section{Conclusion}
 
 \bibliographystyle{abbrv}
 \bibliography{bibl}
+
+\appendix
+	\section{Code Listings}
+		\begin{listing}
+			\cfile{../transmitter/transmitter.ino}
+			\caption{The transmitter code.}
+			\label{lst:transmitterCode}
+		\end{listing}
+
+		\begin{listing}
+			\cfile{../receiver/receiver.ino}
+			\caption{The tapper code.
+				The only difference with the legitimate receiver is \texttt{setupReceive} instead of \texttt{setupReceiveAnalog}.}
+			\label{lst:receiverCode}
+		\end{listing}
 
 \end{document}

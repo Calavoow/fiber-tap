@@ -1,6 +1,5 @@
 #include <Manchester.h>
-
-// Photoresistor pin
+// Photo sensor pin
 int photoSensor = A0;
 
 void setup() {
@@ -8,8 +7,6 @@ void setup() {
 
 	// Use analog pin as digital
 	man.setupReceiveAnalog(photoSensor, MAN_300, 50);
-        //pinMode(photoSensor, INPUT);
-		
 	// Wait for Serial to connect to so output.
 	while(!Serial);
 	Serial.println("begin");
@@ -17,7 +14,9 @@ void setup() {
 	man.beginReceive();
 }
 
-// Buffer the received messages because printing corrupts the next message.
+// Buffer the received messages
+// because printing each char takes too long
+// and corrupts the next receiver byte.
 char password[25];
 int msg_counter = 0;
 /**
@@ -30,13 +29,12 @@ void loop() {
 
 		password[msg_counter] = m;
 		msg_counter++;
-			
 		// Print received messages
 		if(msg_counter > 24){
 		    Serial.println(password);
 		    msg_counter = 0;
 		}
-                // Get ready to receive next packet
-                man.beginReceive();
+		// Get ready to receive next packet
+		man.beginReceive();
 	}
 }
