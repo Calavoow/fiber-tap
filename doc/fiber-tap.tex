@@ -102,7 +102,12 @@
 	As can be shown with the recent controversy surrounding the tapping of Google and Yahoo network infrastructure~\cite{googleyahootap},
 	the pure physical layer of communications is still assumed to be secure.
 
-	Unfortunately, this layer is less secure then people assume it to be. There are a number of known methods of extracting information of a fiber link, while avoiding detection. These methods will be discussed in the following sections. The National Security Agency launched Operation Ivy Bells, deploying submarines and divers to drop waterproof recording pods on the lines\footnote{As disclosed in an interview with Edward Snowden}. \cite{fibertap} shows several 
+	Unfortunately, this layer is less secure then people assume it to be.
+	There are a number of known methods of extracting information of a fiber link, while avoiding detection.
+	These methods will be discussed in the following sections.
+	The National Security Agency launched Operation Ivy Bells,
+	deploying submarines and divers to install waterproof recording pods on the lines\footnote{As disclosed in an interview with Edward Snowden}.
+	\cite{fibertap} shows occurrences of where this happened.
 
 \subsection{Fiber Bending}
 In order to keep the path loss to a bear minimum, fiber cables are armed with several layers of protection starting with several metal cables and finalizing with a coating. Therefore, it is mandatory to strip the cable down to the fiber before subjecting the cable to any kind of bending process. 
@@ -111,7 +116,7 @@ Fiber Optic bending utilizes the principle of light propagation through an optic
 To achieve this propagation, the angle of incidence on the core of the fiber,
 should be greater than the critical angle for total internal reflection.
 In the case that the angle of incidence is less than the critical angle, the light will radiate through the cladding,
-allowing eavesdroppers to do their job. Hence, bending the cable (as displayed in figure: \ref{fig:bending} will allow the light to escape through the cladding.
+allowing eavesdroppers to do their job. Hence, bending the cable (as displayed in \cref{fig:bending} will allow the light to escape through the cladding.
 The best location to place a receiver in order to ``eavesdrop'' on the transmitted data would be at about 45 degree from the normal,
 really depending on the amount the cable is bent. 
 \begin{figure}[htbp]
@@ -121,10 +126,11 @@ really depending on the amount the cable is bent.
 	\label{fig:bending}
 \end{figure}
 
-\subsubsection{Underwater Fiber Tapping}
-In the case that it is desired to use the tapper under water, it is mandatory that the receiver isn't shortcut by the water. A substance should be applied to the conducting wires of the transistor to make it reliable under water.
-Additionally, the hardware as the Arduino's, and the battery pack,
-should not come into contact with water, since that would ruin the entire setup. 
+\subsection{Underwater Fiber Tapping}
+In the case that it is desired to use the tapper under water, it is required that the receiver isn't short circuited by the water.
+A substance should be applied to the conducting wires of the transistor to make it reliable under water.
+Additionally, the hardware consisting of the Arduinos and he battery pack should not come into contact with water,
+since that would ruin the entire setup. 
 
 Several options are available to make the setup water proof, of which the best is designing a water proof case, allowing the power supply,
 the Arduino/microcontroller to remain in a water proof container.
