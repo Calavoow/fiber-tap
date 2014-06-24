@@ -79,7 +79,7 @@
 	\subtitle{Tapping Communications on the Cheap}
 	\author{%
 		Eddie Schoute, 4101790\\
-		Alex van Rijs, ???
+		Alex van Rijs, 1529552
 	}
 
 \begin{document}
@@ -98,17 +98,32 @@
 
 \section{Introduction}
 	%Subject introduction
-	Terabytes of data are being exchanged over fiber optic cables every day and user rely on their security.
+	Terabytes of data are being exchanged over fiber optic cables every day and users rely on their security.
 	As can be shown with the recent controversy surrounding the tapping of Google and Yahoo network infrastructure~\cite{googleyahootap},
 	the pure physical layer of communications is still assumed to be secure.
+
+	Unfortunatley, this layer is less secure then people assume it to be. There are a number of known methods of extracting information of a fiber link, while avoiding detection. These methods will be discussed in the following sections. The National Security Agency launched Operation Ivy Bells, deploying submarines and divers to drop waterproof recording pods on the lines\footnote{As disclosed in an interview with Eduard Snowden}. \cite{fibertap} shows several 
+
+\subsection{Fiber Bending}
+In order to keep the path loss to a bear minimum, fiber cables are armed with several layers of protection starting with several metal cables and finalizing with a coating. Therefore, it is mandatory to strip the cable down to the fiber before subjecting the cable to any kind of bending process. 
+
+Fiber Optic bending utilizes the principle of light propagation through an optical fiber. To achieve this propagation, the angle of incidence on the core of the fiber, should be greater than the critical angle for total internal reflection. In the case that the angle of incidence is less than the critical angle, the light will radiate through the cladding, alowing eavesdroppers to do their job. Hence, bending the cable (as displayed in figure: \ref{fig:bending} will allow the light to escape through the cladding. The best location to place a receiver in order to ``eavesdrop'' on the transmitted data would be at about 45 degree from the normal, really depending on the amount the cable is bent. 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.5\textwidth]{bending}
+	\caption{Macro Bending a Fiber Optic Cable}
+	\label{fig:bending}
+\end{figure}
+
+\subsubsection{Underwater Fiber Tapping}
+In the case that it is desired to use the tapper under water, it is mandatory that the receiver isn't shortcut by the water. A substance should be applied to the conducting wires of the transistor to make it reliable under water. Additionaly, the hardware as the arduino's, and the battary pack, should not come into contact with water, since that would ruin the entire setup. 
+
+Several options are available to make the setup water proof, of which the best is designing a water proof case, allowing the power supply, the arduino/microcontroller to remain in a water proof container. It should be kept in mind that the annode and cathode belonging to the photo-transsitor should not be shortcut by water.
 
 	%Research question and contributions
 	While it is better known that copper taps are easy to install, fiber optic communications are harder to tap.
 	In this paper we will investigate the possible ways an intruder may use to tap fiber optic links.
 	We we also look into bringing these methods into practice, by supplying a proof of concept implementation.
-
-\section{Design}
-	% Some background research and interesting stuff that we used
 
 \section{Proof of Concept}
 	For the proof of concept we discern three parties, the sender, receiver and tapper.
