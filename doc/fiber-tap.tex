@@ -87,7 +87,7 @@
 
 \begin{abstract}
 	\noindent Network security is a very important concept in today's information society.
-	With the heavy reliance on data communications, comes also a responsibility for its security.
+	With heavy reliance on data communications comes also a responsibility for its security.
 	While fiber cables are an improvement over traditional copper with respect to tapping,
 	it is still very possible to tap these cables as we will show in this paper.
 	We will give a proof of concept of tapping fiber communications ``on the cheap'',
@@ -213,7 +213,7 @@
 
 		Secondly, we attached a photo sensor to the cable.
 		At first we tried using a photo resistor whose operation is very simple,
-		the resistance decrease with increasing light intensity.
+		its resistance decreases with increasing light intensity.
 		This works well for low frequency signals (up to \SI{5}{\hertz}),
 		but is insufficient for but the lowest speed data transfers.
 		We then switched to a photo transistor with a switching speed of at most \SI{15}{\micro\second}~\cite{phototransistor}.
@@ -222,13 +222,14 @@
 		at \SI{300}{\kilo\ohm} and over \SI{1}{\mega\ohm} respectively.
 		Using this information we built a simple pull-up circuit using a little trial-and-error,
 		we came to a final pull-up resistor of \SI{100}{\kilo\ohm}\todo{Check}.
-		When reading the ADC input to the Arduino resulted in values of $3 \pm 2$ for ON and between $95 \pm 7$ for OFF.
+		When reading the ADC input to the Arduino resulted in values of $3 \pm 2$ for ON and between $95 \pm 7$ for OFF,
+		which is a respectable enough signal-to-noise ratio.
 
 		Now to interpret the sent Manchester data on the fiber tap we needed to threshold the measurements
-		at about $50$ to turn it into a $1$ or $0$.
+		at about $50$ to digitalize the data.
 		The given library does not support analog inputs, so we modified the library to use
 		a threshold and an analog input for measuring the input signal.
-		The resulting library can be found at~\cite{analogmanchestercoding}.
+		The resulting library and our code can be online found at~\cite{analogmanchestercoding}.
 
 		For better results and sturdiness we have also constructed a simple container,
 		which keeps the cable bended and the photo sensor isolated from external light sources.
@@ -238,6 +239,14 @@
 		$128$ in a row at \SI{300}{Bd}, at which point the Arduino memory limit is reached.
 
 \section{Conclusion}
+	In this paper is shown that fiber optic communications are easy to tap, even with cheap hardware.
+	We have used less than \euro{}$20$ to assemble a tapper consisting of an Arduino,
+	a photo-transistor and a casing.
+	Most of the work of this project was actually in setting up a fiber optic communication link,
+	so that it may be tapped.
+	We reused our receiver code for the tapper, but with a few modifications allowing for an analog input.
+	Future work includes looking into detectability of taps, high speed communications
+	and underwater operations.
 
 \bibliographystyle{abbrv}
 \bibliography{bibl}
