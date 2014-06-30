@@ -105,13 +105,11 @@
 	Unfortunately, this layer is less secure then people assume it to be.
 	There are a number of known methods of extracting information of a fiber link, while avoiding detection.
 	These methods will be discussed in the following sections.
-	The National Security Agency launched Operation Ivy Bells,
-	deploying submarines and divers to install waterproof recording pods on the lines\footnote{As disclosed in an interview with Edward Snowden}.
-	\cite{fibertap} shows occurrences of where this happened.
+	Another example is Operation Ivy Bells from the National Security Agency,
+	where they deployed submarines and divers to install waterproof recording pods on the lines\footnote{As disclosed in an interview with Edward Snowden}.
+	A number of methods is detailed in~\cite{fibertap}.
 
 	\subsection{Fiber Bending}
-		In order to keep the path loss to a bear minimum, fiber cables are armed with several layers of protection starting with several metal cables and finalizing with a coating. Therefore, it is mandatory to strip the cable down to the fiber before subjecting the cable to any kind of bending process. 
-
 		Fiber Optic bending utilizes the principle of light propagation through an optical fiber.
 		To achieve this propagation, the angle of incidence on the core of the fiber,
 		should be greater than the critical angle for total internal reflection.
@@ -127,15 +125,19 @@
 			\label{fig:bending}
 		\end{figure}
 
+		In order to keep path loss to a minimum and protect underwater cables,
+		they are equipped with several layers of protection starting with several flexible metal shells and finalizing with a coating.
+		Therefore, it is mandatory to strip the cable down to the fiber before subjecting the cable to any kind of bending process. 
+
 	\subsection{Underwater Fiber Tapping}
 		In the case that it is desired to use the tapper under water, it is required that the receiver isn't short circuited by the water.
-		A substance should be applied to the conducting wires of the transistor to make it reliable under water.
-		Additionally, the hardware consisting of the Arduinos and he battery pack should not come into contact with water,
+		A substance could be applied to the conducting wires of the transistor to isolate them from the water. 
+		Additionally, the hardware consisting of the Arduinos and the battery pack should not come into contact with water,
 		since that would ruin the entire setup. 
 
 		Several options are available to make the setup water proof, of which the best is designing a water proof case, allowing the power supply,
 		the Arduino/microcontroller to remain in a water proof container.
-		It should be kept in mind that the anode and cathode belonging to the photo-transistor should not be shortcut by water.
+		It should also be kept in mind that the anode and cathode belonging to the photo-transistor in the tapper is not shortcut by water.
 
 		%Research question and contributions
 		While it is better known that copper taps are easy to install, fiber optic communications are harder to tap.
@@ -169,6 +171,9 @@
 		but we noticed that the light source has a higher intensity with lower input resistance.
 		With more input power it easier to tap the cable, so we opted for a lower resistance.
 		The output receiver was built exactly as specified in the data sheet.
+		The disadvantage is the heat dissipation by the resistor, which starts to get hot over time.
+		If a loss in light intensity is acceptable,
+		the input resistance can be increased to reduce the power dissipated in the resistor.
 
 		\begin{figure}
 			\centering
