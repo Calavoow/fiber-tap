@@ -107,17 +107,23 @@
 	These methods will be discussed in the following sections.
 	Another example is Operation Ivy Bells from the National Security Agency,
 	where they deployed submarines and divers to install waterproof recording pods on the lines\footnote{As disclosed in an interview with Edward Snowden}.
-	A number of methods is detailed in~\cite{fibertap}.
+
+	A number of methods for tapping fiber cables are detailed in~\cite{fibertap}.
+	Among those are micro and macro bending,
+	which both involve deforming the cable in such a way that light will spill out.
+	Installing a light splitter, which redirects part of the light to the tapper, and some others.
 
 	\subsection{Fiber Bending}
+		The technique used in this paper is macro fiber bending,
+		as it is the most simple yet very effective method.
 		Fiber Optic bending utilizes the principle of light propagation through an optical fiber.
 		To achieve this propagation, the angle of incidence on the core of the fiber,
 		should be greater than the critical angle for total internal reflection.
 		In the case that the angle of incidence is less than the critical angle, the light will radiate through the cladding,
 		allowing eavesdroppers to do their job.
 		Hence, bending the cable as displayed in \cref{fig:bending} will allow the light to escape through the cladding.
-		The best location to place a receiver in order to ``eavesdrop'' on the transmitted data would be at about 45 degree from the normal,
-		really depending on the amount the cable is bent. 
+		The best location to place a receiver in order to ``eavesdrop'' on the transmitted data should theoretically be at the normal of the bend. 
+
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=0.5\textwidth]{bending}
@@ -240,8 +246,14 @@
 		which keeps the cable bended and the photo sensor isolated from external light sources.
 		We also found out that printing the results does not take an insignificant amount of time,
 		resulting in missed bytes on the tap which is why we buffered the data.
+
 		Using the above components we are successfully able to tap increasing numbers of up to
 		$128$ in a row at \SI{300}{Bd}, at which point the Arduino memory limit is reached.
+		This shows that the tapper is very reliable in getting information from the cable,
+		because sequential information is received with no deformations.
+		We have also demonstrated the tapping of a password \emph{CorrectBatteryHorseStaple} during the presentation.
+		We could generalise to any data that fits in the Arduino memory,
+		so the tapper is very effective in its purpose.
 
 \section{Conclusion}
 	In this paper is shown that fiber optic communications are easy to tap, even with cheap hardware.
@@ -250,6 +262,8 @@
 	Most of the work of this project was actually in setting up a fiber optic communication link,
 	so that it may be tapped.
 	We reused our receiver code for the tapper, but with a few modifications allowing for an analog input.
+	The tapper is able to consistently needly record data up to the Arduino memory limit and print it out to for the user to see,
+	including a sequence of $128$ numbers and passwords.
 	Future work includes looking into detectability of taps, high speed communications
 	and underwater operations.
 
