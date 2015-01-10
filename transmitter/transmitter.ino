@@ -1,4 +1,4 @@
-const unsigned int rate = 100; // bit/s
+const unsigned int rate = 50; // bit/s
 const unsigned int halfBit = 500/rate; // delay in millisecond per half-bit, i.e. per transition.
 // LED pin
 const int led = 4;
@@ -32,7 +32,8 @@ void sendByte(byte value) {
 	}
 }
 
-const byte sync[] = {0xCA, 0xFE, 0xBA, 0xBE};
+// Make sure that first bit sent is low -> high, for synchronisation
+const byte sync[] = {0xCB, 0xFE, 0xBA, 0xBE};
 void send(int bytes, byte* data) {
 	// First send the sync bits
 	for(int i = 0; i < sizeof(sync); i++) {
@@ -47,6 +48,6 @@ void send(int bytes, byte* data) {
 
 const char password[26] = "correctHorseBatteryStaple";
 void loop() {
-	Serial.println(halfBit);
+	Serial.println("Send");
 	send(sizeof(password), (byte*) password);
 }

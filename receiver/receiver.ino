@@ -1,8 +1,8 @@
-const unsigned int rate = 300; // bit/s
-const unsigned int halfBit = 1/rate * 1000000; // delay in microseconds per half-bit, i.e. per transition.
+const unsigned int rate = 50; // bit/s
+const unsigned int halfBit = 500/rate; // delay in microseconds per half-bit, i.e. per transition.
 // The wait time in microseconds until to the middle of the next flank.
 // We wait until we are in the middle of a transmission flank.
-const unsigned int threeQuartBit = 1/rate * 1000000 * 1.5;
+const unsigned int threeQuartBit = 750/rate;
 
 // Photo sensor pin
 const int photoSensor = A0;
@@ -10,7 +10,6 @@ const int threshold = 75;
 
 void setup() {
 	Serial.begin(9600);
-
 	// Wait for Serial to connect to so output.
 	while(!Serial);
 	Serial.println("begin");
@@ -19,7 +18,7 @@ void setup() {
 
 // Read the current sensor value
 bool readSensor() {
-	return analogRead(photoSensor) >= threshold;
+	return !(analogRead(photoSensor) >= threshold);
 }
 
 // low-high is 1, high-low is 0.
@@ -36,23 +35,31 @@ byte readByte() {
 	byte readByte = 0x00;
 	for(int i=0; i < 8; i++){
 		bool val = readTransition();
+                Serial.print(val);
 		// Writes lowest-significance first.
 		bitWrite(readByte, i, val);
-		delayMicroseconds(threeQuartBit); // Wait for half of the next bit transition.
+                // Wait for 3/4 of the next bit transition,
+                // so that we end up in the middle of the next flank
+		delay(threeQuartBit);
 	}
+        Serial.println("");
 	return readByte;
 }
 
-const byte sync[] = {0xCA, 0xFE, 0xBA, 0xBE};
+// Make sure that first bit sent is low -> high, for synchronisation
+const byte sync[] = {0xCB, 0xFE, 0xBA, 0xBE};
 // receive bytes number of bytes.
 void receive(int bytes, byte* values) {
 	// Sync must succeed first.
 	int syncCounter = 0;
 	while(syncCounter < sizeof(sync)) {
 		byte val = readByte();
+                Serial.println(val);
 		if(val == sync[syncCounter]) {
+    Serial.println("success");
 			syncCounter++;
 		} else {
+    Serial.println("reset");
 			// Reset counter, wrong byte received.
 			syncCounter = 0;
 		}
@@ -73,8 +80,8 @@ int msg_counter = 0;
  * The main receiver program loop.
  **/
 void loop() {
-	byte val[1];
-	receive(1, val);
-	char c = (char) val[0];
-	Serial.print(c);
+    Serial.println("Receive");
+	byte val[25];
+	receive(25, val);
+	Serial.println((char*) val);
 }
