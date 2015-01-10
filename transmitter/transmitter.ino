@@ -1,9 +1,11 @@
-const unsigned int rate = 300; // bit/s
-const unsigned int halfBit = 1/rate * 1000000; // delay in microseconds per half-bit, i.e. per transition.
+const unsigned int rate = 100; // bit/s
+const unsigned int halfBit = 500/rate; // delay in millisecond per half-bit, i.e. per transition.
 // LED pin
 const int led = 4;
 
 void setup() {
+	pinMode(led, OUTPUT);
+
 	Serial.begin(9600);
 	// Wait for Serial to connect to output.
 	while(!Serial) ;
@@ -13,14 +15,14 @@ void setup() {
 void sendBit(bool bit) {
 	if(bit) { // 1 => low -> high
 		digitalWrite(led,  LOW);
-		delayMicroseconds(halfBit);
+		delay(halfBit);
 		digitalWrite(led, HIGH);
-		delayMicroseconds(halfBit);
+		delay(halfBit);
 	} else { // 0 => high -> low
 		digitalWrite(led,  HIGH);
-		delayMicroseconds(halfBit);
+		delay(halfBit);
 		digitalWrite(led, LOW);
-		delayMicroseconds(halfBit);
+		delay(halfBit);
 	}
 }
 
@@ -45,5 +47,6 @@ void send(int bytes, byte* data) {
 
 const char password[26] = "correctHorseBatteryStaple";
 void loop() {
+	Serial.println(halfBit);
 	send(sizeof(password), (byte*) password);
 }
