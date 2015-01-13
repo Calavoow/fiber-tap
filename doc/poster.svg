@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="2214.961"
-     inkscape:cy="1166.0768"
+     inkscape:zoom="0.25"
+     inkscape:cx="2768.3014"
+     inkscape:cy="1429.2977"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -60,7 +60,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -80,7 +80,7 @@
        id="rect4228"
        width="3248.6506"
        height="618.21338"
-       x="482.17078"
+       x="478.8125"
        y="0.072663307" />
   </g>
   <g
@@ -126,7 +126,7 @@
          y="155.53464" /></text>
     <text
        xml:space="preserve"
-       style="font-size:144px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:144px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-stretch:normal;font-variant:normal"
        x="717.33203"
        y="-1742.5568"
        id="text3425"
@@ -171,7 +171,7 @@
        transform="translate(0,-1927.559)" />
     <text
        xml:space="preserve"
-       style="font-size:72px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:72px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-stretch:normal;font-variant:normal"
        x="709.84375"
        y="-1621.9236"
        id="text4230"
@@ -180,10 +180,10 @@
          id="tspan4232"
          x="709.84375"
          y="-1621.9236"
-         style="font-size:72px;fill:#3d98de;fill-opacity:1">Delft University of Technology</tspan></text>
+         style="font-size:72px;fill:#3d98de;fill-opacity:1;-inkscape-font-specification:DejaVu Sans;font-family:DejaVu Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Delft University of Technology</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:72px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       style="font-size:72px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans;font-stretch:normal;font-variant:normal"
        x="709.84375"
        y="-1421.9236"
        id="text4234"
@@ -296,20 +296,20 @@
      inkscape:label="Layer">
     <g
        id="g4035"
-       transform="translate(-242.85714,0)">
+       transform="translate(-239.75012,-100)">
       <rect
          y="771.34973"
          x="3062.8572"
          height="517.14282"
          width="905.71436"
          id="rect3919"
-         style="opacity:0.93415635;fill:#feffde;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+         style="opacity:0.93415635;fill:#feffd5;fill-opacity:1;stroke:#000000;stroke-width:4;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
       <text
          sodipodi:linespacing="125%"
          id="text3921"
          y="845.63544"
          x="3297.9487"
-         style="font-size:64px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          xml:space="preserve"><tspan
            y="845.63544"
            x="3297.9487"
@@ -319,7 +319,7 @@
          id="g4003">
         <text
            xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
            x="3740.8572"
            y="916.58185"
            id="text3935"
@@ -330,7 +330,7 @@
              y="916.58185">Cost (€)</tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
            x="3428.5715"
            y="921.28888"
            id="text3939"
@@ -344,7 +344,7 @@
          id="g4009">
         <text
            xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
            x="3148.5713"
            y="1008.6784"
            id="text3931"
@@ -361,7 +361,7 @@
              id="text3943"
              y="952.67841"
              x="3777.1428"
-             style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1d6aa4;fill-opacity:0.96078432;stroke:none;font-family:Sans"
+             style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1d6aa4;fill-opacity:0.96078431;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
              xml:space="preserve"><tspan
                y="952.67841"
                x="3777.1428"
@@ -373,7 +373,7 @@
          id="g4020">
         <text
            xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
            x="3151.7144"
            y="1092.2386"
            id="text3964"
@@ -389,7 +389,7 @@
              id="text3968"
              y="1092.2386"
              x="3774.9197"
-             style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1d6aa4;fill-opacity:0.96078432;stroke:none;font-family:Sans"
+             style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1d6aa4;fill-opacity:0.96078431;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
              xml:space="preserve"><tspan
                id="tspan3972"
                y="1092.2386"
@@ -406,7 +406,7 @@
          id="g4027">
         <text
            xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
            x="3154.2856"
            y="1169.5624"
            id="text3981"
@@ -417,7 +417,7 @@
              y="1169.5624">Arduino</tspan></text>
         <text
            xml:space="preserve"
-           style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1d6aa4;fill-opacity:0.96078432;stroke:none;font-family:Sans"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1d6aa4;fill-opacity:0.96078431;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
            x="3762.0388"
            y="1169.5624"
            id="text3985"
@@ -443,7 +443,7 @@
          id="text3999"
          y="1242.064"
          x="3762.0388"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          xml:space="preserve"><tspan
            y="1242.064"
            x="3762.0388"
@@ -454,7 +454,7 @@
        xml:space="preserve"
        id="flowRoot4067"
        style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-       transform="translate(0,12)"><flowRegion
+       transform="translate(0,9.37039)"><flowRegion
          id="flowRegion4069"><rect
            id="rect4071"
            width="1120.0264"
@@ -506,7 +506,7 @@
            x="1248.7993"
            sodipodi:role="line">5.</tspan></text>
       <flowRoot
-         transform="translate(-125.8711,2)"
+         transform="translate(-125.8711,4)"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
          id="flowRoot4128"
          xml:space="preserve"><flowRegion
@@ -516,8 +516,9 @@
              height="104"
              width="918"
              id="rect4132" /></flowRegion><flowPara
-           id="flowPara4134">Remove the outer shielding using a utility knife.</flowPara></flowRoot>      <flowRoot
-         transform="translate(-148.86329,18)"
+           id="flowPara4134"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans">Remove the outer shielding using a utility knife.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-148.86329,16)"
          style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
          id="flowRoot4142"
          xml:space="preserve"><flowRegion
@@ -527,9 +528,10 @@
              height="118"
              width="914"
              id="rect4146" /></flowRegion><flowPara
-           id="flowPara4148">Carefully make a small opening in the inner fiber using sandpaper.</flowPara></flowRoot>      <flowRoot
-         transform="translate(-136.15235,26)"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+           id="flowPara4148"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans">Carefully make a small opening in the inner fiber using sandpaper.</flowPara></flowRoot>      <flowRoot
+         transform="translate(-136.15235,18)"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          id="flowRoot4150"
          xml:space="preserve"><flowRegion
            id="flowRegion4152"><rect
@@ -537,12 +539,13 @@
              x="1536"
              height="102"
              width="930"
-             id="rect4154" /></flowRegion><flowPara
+             id="rect4154"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans" /></flowRegion><flowPara
            id="flowPara4156"><flowSpan
-   style="font-style:italic"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
    id="flowSpan3983">Bend</flowSpan> the cable and check if some of the light comes out.</flowPara></flowRoot>      <flowRoot
-         transform="translate(-151.82813,6)"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         transform="translate(-151.82813,4)"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          id="flowRoot4158"
          xml:space="preserve"><flowRegion
            id="flowRegion4160"><rect
@@ -550,10 +553,11 @@
              x="1554"
              height="102"
              width="962"
-             id="rect4162" /></flowRegion><flowPara
+             id="rect4162"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans" /></flowRegion><flowPara
            id="flowPara4164">Tape the phototransistor to the cable and measure its value using a simple pull-up circuit.</flowPara></flowRoot>      <flowRoot
          transform="translate(-9.8710987,-60)"
-         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          id="flowRoot3126"
          xml:space="preserve"><flowRegion
            id="flowRegion3128"><rect
@@ -561,7 +565,8 @@
              x="1408"
              height="114"
              width="994"
-             id="rect3130" /></flowRegion><flowPara
+             id="rect3130"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans" /></flowRegion><flowPara
            id="flowPara3132">Record the measurements and analyze them.</flowPara></flowRoot>    </g>
   </g>
   <g
