@@ -16,6 +16,8 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="poster.svg">
+  <title
+     id="title4227">Tapping Fiber-Optic Cables on the Cheap</title>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -23,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.22627417"
-     inkscape:cx="2895.8934"
-     inkscape:cy="1390.5422"
+     inkscape:zoom="0.32"
+     inkscape:cx="2292.4995"
+     inkscape:cy="1486.4645"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -201,8 +203,44 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>Tapping Fiber-Optic Cables on the Cheap</dc:title>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Calavoow</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Calavoow</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:date>2015/01/21</dc:date>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title></dc:title>
+          </cc:Agent>
+        </dc:contributor>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>fiber</rdf:li>
+            <rdf:li>optic</rdf:li>
+            <rdf:li>tap</rdf:li>
+            <rdf:li>communication</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:language>english</dc:language>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
       </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
     </rdf:RDF>
   </metadata>
   <g
@@ -18767,7 +18805,7 @@ kuqb1ibYdwkhhBBCCCFrZYtCEUJIN1uye76TyYf/D0RfXO4WmM3SAAAAAElFTkSuQmCC
          style="font-size:48px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:justify;text-anchor:start;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          id="flowPara4020">Conclusion</flowPara><flowPara
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;text-anchor:start;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
-         id="flowPara4166">This proof of concept shows that low speed fiber-topic tapping is possible for as little as  5 Euro. Communications over fiber are not immune to tapping, and shoul also be encrypted.</flowPara><flowPara
+         id="flowPara4166">This proof of concept shows that low speed fiber-topic tapping is possible for as little as  5 Euro. Communications over fiber are not immune to tapping, and should also be encrypted.</flowPara><flowPara
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:justify;text-anchor:start;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
          id="flowPara4163">Doing it on land is one thing. In the spring we will go diving and tap a cable <flowSpan
    style="font-style:italic"
